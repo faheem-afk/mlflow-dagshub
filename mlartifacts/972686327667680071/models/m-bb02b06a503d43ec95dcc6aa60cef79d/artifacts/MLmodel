@@ -1,0 +1,31 @@
+artifact_path: mlflow-artifacts:/972686327667680071/models/m-bb02b06a503d43ec95dcc6aa60cef79d/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.2
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+is_signature_from_type_hint: false
+mlflow_version: 3.1.1
+model_id: m-bb02b06a503d43ec95dcc6aa60cef79d
+model_size_bytes: 2006
+model_uuid: m-bb02b06a503d43ec95dcc6aa60cef79d
+prompts: null
+run_id: 4a59021626f440ad9cb0093fd1735120
+signature:
+  inputs: '[{"type": "long", "name": "IQ", "required": true}, {"type": "double", "name":
+    "CGPA", "required": true}, {"type": "long", "name": "10th_Marks", "required":
+    true}, {"type": "long", "name": "12th_Marks", "required": true}, {"type": "double",
+    "name": "Communication_Skills", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-07-20 21:17:48.563172'

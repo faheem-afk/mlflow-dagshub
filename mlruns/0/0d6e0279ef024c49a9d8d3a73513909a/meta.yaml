@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/0d6e0279ef024c49a9d8d3a73513909a/artifacts
+end_time: 1753040967247
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0d6e0279ef024c49a9d8d3a73513909a
+run_name: rumbling-slug-107
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753040967212
+status: 3
+tags: []
+user_id: faheem

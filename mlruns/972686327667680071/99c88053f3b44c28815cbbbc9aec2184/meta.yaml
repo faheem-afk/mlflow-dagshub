@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/972686327667680071/99c88053f3b44c28815cbbbc9aec2184/artifacts
+end_time: 1753041999267
+entry_point_name: ''
+experiment_id: '972686327667680071'
+lifecycle_stage: active
+run_id: 99c88053f3b44c28815cbbbc9aec2184
+run_name: kindly-snipe-2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753041999249
+status: 3
+tags: []
+user_id: faheem

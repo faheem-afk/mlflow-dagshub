@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/972686327667680071/1baf30232c7d43828e1640882f9f58fd/artifacts
+end_time: 1753045524290
+entry_point_name: ''
+experiment_id: '972686327667680071'
+lifecycle_stage: active
+run_id: 1baf30232c7d43828e1640882f9f58fd
+run_name: decision-tree-experimentation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753045521474
+status: 3
+tags: []
+user_id: faheem

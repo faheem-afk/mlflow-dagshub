@@ -1,0 +1,35 @@
+artifact_path: decision_tree
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.2
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+is_signature_from_type_hint: false
+mlflow_version: 2.22.1
+model_size_bytes: 2863
+model_uuid: 72d230fb5b134c89b570b19c31d0353b
+prompts: null
+run_id: fe97c0b7dd624535a61f40e24318a981
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "IQ", "required": true}, {"type": "double",
+    "name": "CGPA", "required": true}, {"type": "double", "name": "10th_Marks", "required":
+    true}, {"type": "double", "name": "12th_Marks", "required": true}, {"type": "double",
+    "name": "Communication_Skills", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-07-21 17:23:54.912228'
