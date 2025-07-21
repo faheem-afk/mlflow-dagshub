@@ -8,6 +8,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import dagshub
 
+mlflow.set_experiment('student-performance-dt')
+
 dagshub.init(repo_owner='faheem-afk', repo_name='mlflow-dagshub', mlflow=True)
 
 mlflow.set_tracking_uri("https://github.com/faheem-afk/mlflow-dagshub.git")
@@ -24,8 +26,6 @@ y = df.iloc[:, -1]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 max_depth = 3
-
-mlflow.set_experiment('student-performance-dt')
 
 with mlflow.start_run(run_name='decision-tree-experimentation'):
 
