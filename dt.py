@@ -3,6 +3,7 @@ from mlflow.models.signature import infer_signature
 import mlflow
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
@@ -28,18 +29,20 @@ y = df.iloc[:, -1]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 max_depth = 3
+n_estimators = 100
 # Set the tracking URI
-mlflow.set_experiment('student-performance-dt')
+mlflow.set_experiment('experiment_by_ballu_randomforest')
 
 with mlflow.start_run(run_name='decision-tree-experimentation'):
 
-    dt = DecisionTreeClassifier(max_depth=max_depth)
+    # dt = DecisionTreeClassifier(max_depth=max_depth)
+    rf = RandomForestClassifier(max_depth=max_depth, n_estimators=n_estimators)
 
-    dt.fit(X_train, y_train)
+    rf.fit(X_train, y_train)
 
-    y_pred = dt.predict(X_test)
+    y_pred = rf.predict(X_test)
 
-    signature = infer_signature(X_train, dt.predict(X_train))
+    signature = infer_signature(X_train, rf.predict(X_train))
     
     input_example = input_example = X_train.iloc[:5, :]
     
@@ -49,7 +52,7 @@ with mlflow.start_run(run_name='decision-tree-experimentation'):
     mlflow.log_metric("f1_score", f1_score(y_test, y_pred))
     mlflow.log_param('max_depth', max_depth)
 
-    mlflow.set_tag("author", "kallu")
+    mlflow.set_tag("author", "ballu")
     cm = confusion_matrix(y_test, y_pred)
     
     plt.figure(figsize=(6,6))
@@ -66,7 +69,7 @@ with mlflow.start_run(run_name='decision-tree-experimentation'):
     
     mlflow.log_artifact(__file__)
     
-    mlflow.sklearn.log_model(dt, 'decision_tree_with_dagshub2', signature=signature, input_example=input_example)
+    mlflow.sklearn.log_model(rf, 'random_forest_with_dagshub2', signature=signature, input_example=input_example)
 
 
 
