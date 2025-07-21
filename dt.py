@@ -1,3 +1,4 @@
+import os
 from mlflow.models.signature import infer_signature
 import mlflow
 import pandas as pd
@@ -7,12 +8,21 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import dagshub
+from dotenv import load_dotenv
 
+load_dotenv()
+
+# Now use them
+os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("DAGSHUB_USERNAME")
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("DAGSHUB_TOKEN")
+
+
+# Set the tracking URI
 mlflow.set_experiment('student-performance-dt')
 
 dagshub.init(repo_owner='faheem-afk', repo_name='mlflow-dagshub', mlflow=True)
 
-mlflow.set_tracking_uri("https://github.com/faheem-afk/mlflow-dagshub.git")
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
 
 df = pd.read_csv("student_performance_df.csv")
 
