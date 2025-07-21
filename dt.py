@@ -6,8 +6,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+import dagshub
 
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+dagshub.init(repo_owner='faheem-afk', repo_name='mlflow-dagshub', mlflow=True)
+
+mlflow.set_tracking_uri("https://github.com/faheem-afk/mlflow-dagshub.git")
 
 df = pd.read_csv("student_performance_df.csv")
 
@@ -59,7 +62,7 @@ with mlflow.start_run(run_name='decision-tree-experimentation'):
     
     mlflow.log_artifact(__file__)
     
-    mlflow.sklearn.log_model(dt, 'decision_tree', signature=signature, input_example=input_example)
+    mlflow.sklearn.log_model(dt, 'decision_tree_with_dagshub1', signature=signature, input_example=input_example)
 
 
 
