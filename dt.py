@@ -12,14 +12,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Now use them
-os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("DAGSHUB_USERNAME")
-os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("DAGSHUB_TOKEN")
-
-
-# Set the tracking URI
-mlflow.set_experiment('student-performance-dt')
-
 dagshub.init(repo_owner='faheem-afk', repo_name='mlflow-dagshub', mlflow=True)
 
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
@@ -36,6 +28,8 @@ y = df.iloc[:, -1]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 max_depth = 3
+# Set the tracking URI
+mlflow.set_experiment('student-performance-dt')
 
 with mlflow.start_run(run_name='decision-tree-experimentation'):
 
@@ -72,7 +66,7 @@ with mlflow.start_run(run_name='decision-tree-experimentation'):
     
     mlflow.log_artifact(__file__)
     
-    mlflow.sklearn.log_model(dt, 'decision_tree_with_dagshub1', signature=signature, input_example=input_example)
+    mlflow.sklearn.log_model(dt, 'decision_tree_with_dagshub2', signature=signature, input_example=input_example)
 
 
 
