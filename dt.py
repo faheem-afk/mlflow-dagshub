@@ -33,7 +33,7 @@ n_estimators = 100
 # Set the tracking URI
 mlflow.set_experiment('experiment_by_ballu_randomforest')
 
-with mlflow.start_run(run_name='decision-tree-experimentation'):
+with mlflow.start_run(run_name='random-forest-experimentation'):
 
     # dt = DecisionTreeClassifier(max_depth=max_depth)
     rf = RandomForestClassifier(max_depth=max_depth, n_estimators=n_estimators)
